@@ -1,1 +1,1 @@
-# amuscientificinstrument.io
+# AMU Scientific Instruments.io
