@@ -21,6 +21,9 @@
   a{color:inherit;}
   :focus-visible{outline:2px solid var(--brass); outline-offset:3px;}
   .wrap{max-width:1180px; margin:0 auto; padding:0 28px;}
+  @media (max-width:480px){
+    .wrap{padding:0 18px;}
+  }
 
   .page{display:none;}
   .page.active{display:block; animation:pageIn .32s ease both;}
@@ -38,6 +41,14 @@
   .brand-mark{font-family:'IBM Plex Mono', monospace; font-weight:700; font-size:22px; letter-spacing:0.02em; border:1.5px solid var(--ink); padding:2px 8px; color:var(--ink);}
   .brand-name{font-family:'IBM Plex Mono', monospace; font-size:12px; letter-spacing:0.16em; text-transform:uppercase; color:var(--ink-soft);}
   nav{display:flex; gap:28px; font-size:13.5px;}
+  @media (max-width:640px){
+    .header-inner{padding:14px 16px;}
+    .brand-name{display:none;}
+    nav{gap:16px; font-size:12px;}
+  }
+  @media (max-width:380px){
+    nav{gap:11px; font-size:11px;}
+  }
   nav button.navlink{
     text-decoration:none; color:var(--ink-soft); font-family:'IBM Plex Mono', monospace; letter-spacing:0.04em;
     padding-bottom:3px; border-bottom:1px solid transparent; transition:color .15s, border-color .15s;
@@ -56,6 +67,9 @@
   /* ---------- HOME HERO ---------- */
   .hero{border-bottom:1px solid var(--line-strong); position:relative; overflow:hidden;}
   .hero-inner{max-width:1180px; margin:0 auto; padding:64px 28px 56px; display:grid; grid-template-columns:1.05fr 1fr; gap:48px; align-items:center;}
+  @media (max-width:900px){
+    .hero-inner{grid-template-columns:1fr; padding:40px 20px 36px; gap:32px;}
+  }
   h1.hero-title{font-family:'IBM Plex Mono', monospace; font-weight:700; font-size:clamp(30px, 4.4vw, 50px); line-height:1.08; letter-spacing:-0.01em; margin:0 0 8px; color:var(--ink);}
   .hero-title .accent{color:var(--brass);}
   .hero-companyname{font-family:'IBM Plex Mono', monospace; font-size:13px; letter-spacing:0.14em; color:var(--muted); text-transform:uppercase; margin:0 0 22px;}
@@ -64,7 +78,7 @@
   .hero-diagram{position:relative;}
   .hero-photo-frame{position:relative; background:var(--bg-panel); border:1px solid var(--line-strong); padding:18px;}
   .hero-photo-frame img{display:block; width:100%; height:auto; max-height:420px; object-fit:contain; margin:0 auto;}
-  .hero-photo-frame::before{content:"FIG. 01 — AMU_TA_S6002"; position:absolute; top:-11px; left:16px; background:var(--bg); font-family:'IBM Plex Mono', monospace; font-size:10.5px; letter-spacing:0.1em; color:var(--muted); padding:0 8px;}
+  .hero-photo-frame::before{content:"FIG. 01 — AMU_TA_G6002"; position:absolute; top:-11px; left:16px; background:var(--bg); font-family:'IBM Plex Mono', monospace; font-size:10.5px; letter-spacing:0.1em; color:var(--muted); padding:0 8px;}
   .callout-svg{position:absolute; inset:0; width:100%; height:100%; pointer-events:none;}
   .callout-line{stroke:var(--blue); stroke-width:1; fill:none; stroke-dasharray:220; stroke-dashoffset:220; animation:draw 1.1s ease forwards;}
   .callout-dot{fill:var(--blue); opacity:0; animation:fadein .3s ease forwards;}
@@ -154,7 +168,7 @@
   .card-code{font-family:'IBM Plex Mono', monospace; font-size:11px; letter-spacing:0.1em; color:var(--brass); border:1px solid var(--brass); padding:3px 8px; white-space:nowrap;}
   .card-cat{font-family:'IBM Plex Mono', monospace; font-size:10.5px; color:var(--muted); letter-spacing:0.06em; text-transform:uppercase;}
 
-  .card-photo{background:var(--bg); border:1px solid var(--line); display:flex; align-items:center; justify-content:center; height:190px; overflow:hidden; position:relative;}
+  .card-photo{background:var(--bg); border:1px solid var(--line); display:flex; align-items:center; justify-content:center; aspect-ratio:4/3; overflow:hidden; position:relative;}
   .card-photo img{width:100%; height:100%; object-fit:cover; transition:transform .4s ease; display:block;}
   .card:hover .card-photo img{transform:scale(1.04);}
 
@@ -188,6 +202,11 @@
 
   .card-bottom{display:flex; justify-content:space-between; align-items:center; margin-top:2px;}
   .card-note{font-size:11.5px; color:var(--muted);}
+  .avail-badge{
+    display:inline-block; margin-top:-6px; font-family:'IBM Plex Mono', monospace; font-size:10.5px;
+    letter-spacing:0.06em; text-transform:uppercase; color:var(--brass); background:rgba(168,99,42,0.08);
+    border:1px solid var(--brass); padding:3px 9px; align-self:flex-start;
+  }
   .enquire{font-family:'IBM Plex Mono', monospace; font-size:12.5px; letter-spacing:0.03em; color:var(--ink); text-decoration:none; background:none; border:none; border-bottom:1.5px solid var(--brass); padding:0 0 2px; cursor:pointer; white-space:nowrap; transition:color .15s;}
   .enquire:hover{color:var(--brass);}
 
@@ -266,7 +285,7 @@
       </div>
       <div class="hero-diagram">
         <div class="hero-photo-frame">
-          <img src="images/AMU_TA_S6002.jpg" alt="Magnetic Levitation apparatus, showing ring magnets levitating on a central acrylic rod">
+          <img src="images/AMU_TA_G6002.jpg" alt="Magnetic Levitation apparatus, showing ring magnets levitating on a central acrylic rod">
           <svg class="callout-svg" viewBox="0 0 100 100" preserveAspectRatio="none">
             <line class="callout-line" x1="60" y1="10" x2="78" y2="4" style="animation-delay:.2s"/>
             <circle class="callout-dot" cx="60" cy="10" r="1.1" style="animation-delay:.9s"/>
@@ -404,9 +423,9 @@
         <p class="card-desc">A pivoting magnet and pointer swing toward any sample brought near it — sorts magnetic from non-magnetic materials.</p>
         <div class="spec-table">
           <div class="spec-row head"><div>Variant</div><div>Price</div><div></div></div>
-          <div class="spec-row"><div class="spec-mat"><span class="swatch acrylic"></span>Acrylic</div><div class="spec-price"><span class="cur">₹</span>750</div><div></div></div>
-          <div class="spec-row"><div class="spec-mat"><span class="swatch mdf"></span>MDF</div><div class="spec-price"><span class="cur">₹</span>580</div><div></div></div>
+          <div class="spec-row"><div class="spec-mat"><span class="swatch acrylic"></span>Acrylic</div><div class="spec-price"><span class="cur">₹</span>750</div><div></div></div><div class="spec-row"><div class="spec-mat"><span class="swatch mdf"></span>MDF</div><div class="spec-price"><span class="cur">₹</span>580</div><div></div></div>
         </div>
+        
         <div class="card-bottom">
           <span class="card-note">Indicative pricing, ex-works</span>
           <button type="button" class="enquire" data-nav="enquire" data-product="Magnetic Material Finder">Enquire →</button>
@@ -432,9 +451,9 @@
         <p class="card-desc">Ring magnets stacked with alternating poles float above one another, demonstrating magnetic repulsion without contact.</p>
         <div class="spec-table">
           <div class="spec-row head"><div>Variant</div><div>Price</div><div></div></div>
-          <div class="spec-row"><div class="spec-mat"><span class="swatch acrylic"></span>Acrylic</div><div class="spec-price"><span class="cur">₹</span>1,150</div><div></div></div>
-          <div class="spec-row"><div class="spec-mat"><span class="swatch mdf"></span>MDF</div><div class="spec-price"><span class="cur">₹</span>900</div><div></div></div>
+          <div class="spec-row"><div class="spec-mat"><span class="swatch acrylic"></span>Acrylic</div><div class="spec-price"><span class="cur">₹</span>1,150</div><div></div></div><div class="spec-row"><div class="spec-mat"><span class="swatch mdf"></span>MDF</div><div class="spec-price"><span class="cur">₹</span>900</div><div></div></div>
         </div>
+        
         <div class="card-bottom">
           <span class="card-note">Indicative pricing, ex-works</span>
           <button type="button" class="enquire" data-nav="enquire" data-product="Magnetic Levitation">Enquire →</button>
@@ -460,9 +479,9 @@
         <p class="card-desc">Bar magnets held in a fixed frame beneath a removable sheet — sprinkle iron filings to trace field lines directly.</p>
         <div class="spec-table">
           <div class="spec-row head"><div>Variant</div><div>Price</div><div></div></div>
-          <div class="spec-row"><div class="spec-mat"><span class="swatch acrylic"></span>Acrylic</div><div class="spec-price"><span class="cur">₹</span>750</div><div></div></div>
-          <div class="spec-row"><div class="spec-mat"><span class="swatch mdf"></span>MDF</div><div class="spec-price"><span class="cur">₹</span>580</div><div></div></div>
+          <div class="spec-row"><div class="spec-mat"><span class="swatch acrylic"></span>Acrylic</div><div class="spec-price"><span class="cur">₹</span>750</div><div></div></div><div class="spec-row"><div class="spec-mat"><span class="swatch mdf"></span>MDF</div><div class="spec-price"><span class="cur">₹</span>580</div><div></div></div>
         </div>
+        
         <div class="card-bottom">
           <span class="card-note">Indicative pricing, ex-works</span>
           <button type="button" class="enquire" data-nav="enquire" data-product="Magnetic Field Pattern">Enquire →</button>
@@ -494,9 +513,9 @@
         <p class="card-desc">A hand lens paired with a fine graduated scale for reading small lengths more precisely than the eye alone allows.</p>
         <div class="spec-table">
           <div class="spec-row head"><div>Variant</div><div>Price</div><div></div></div>
-          <div class="spec-row"><div class="spec-mat"><span class="swatch acrylic"></span>Acrylic</div><div class="spec-price"><span class="cur">₹</span>750</div><div></div></div>
-          <div class="spec-row"><div class="spec-mat"><span class="swatch mdf"></span>MDF</div><div class="spec-price"><span class="cur">₹</span>580</div><div></div></div>
+          <div class="spec-row"><div class="spec-mat"><span class="swatch acrylic"></span>Acrylic</div><div class="spec-price"><span class="cur">₹</span>750</div><div></div></div><div class="spec-row"><div class="spec-mat"><span class="swatch mdf"></span>MDF</div><div class="spec-price"><span class="cur">₹</span>580</div><div></div></div>
         </div>
+        
         <div class="card-bottom">
           <span class="card-note">Indicative pricing, ex-works</span>
           <button type="button" class="enquire" data-nav="enquire" data-product="Magnifying Measure">Enquire →</button>
@@ -522,9 +541,9 @@
         <p class="card-desc">A crank-and-slider mechanism converts steady circular turning into back-and-forth linear motion, and back again.</p>
         <div class="spec-table">
           <div class="spec-row head"><div>Variant</div><div>Price</div><div></div></div>
-          <div class="spec-row"><div class="spec-mat"><span class="swatch acrylic"></span>Acrylic</div><div class="spec-price"><span class="cur">₹</span>750</div><div></div></div>
-          <div class="spec-row"><div class="spec-mat"><span class="swatch mdf"></span>MDF</div><div class="spec-price"><span class="cur">₹</span>580</div><div></div></div>
+          <div class="spec-row"><div class="spec-mat"><span class="swatch acrylic"></span>Acrylic</div><div class="spec-price"><span class="cur">₹</span>750</div><div></div></div><div class="spec-row"><div class="spec-mat"><span class="swatch mdf"></span>MDF</div><div class="spec-price"><span class="cur">₹</span>580</div><div></div></div>
         </div>
+        
         <div class="card-bottom">
           <span class="card-note">Indicative pricing, ex-works</span>
           <button type="button" class="enquire" data-nav="enquire" data-product="Circular to Linear Motion">Enquire →</button>
@@ -556,9 +575,9 @@
         <p class="card-desc">A simple test circuit with a swappable sample holder — the bulb lights only when a conducting material completes the circuit.</p>
         <div class="spec-table">
           <div class="spec-row head"><div>Variant</div><div>Price</div><div></div></div>
-          <div class="spec-row"><div class="spec-mat"><span class="swatch acrylic"></span>Acrylic</div><div class="spec-price"><span class="cur">₹</span>750</div><div></div></div>
-          <div class="spec-row"><div class="spec-mat"><span class="swatch mdf"></span>MDF</div><div class="spec-price"><span class="cur">₹</span>580</div><div></div></div>
+          <div class="spec-row"><div class="spec-mat"><span class="swatch acrylic"></span>Acrylic</div><div class="spec-price"><span class="cur">₹</span>750</div><div></div></div><div class="spec-row"><div class="spec-mat"><span class="swatch mdf"></span>MDF</div><div class="spec-price"><span class="cur">₹</span>580</div><div></div></div>
         </div>
+        
         <div class="card-bottom">
           <span class="card-note">Indicative pricing, ex-works</span>
           <button type="button" class="enquire" data-nav="enquire" data-product="Conductors and Insulators">Enquire →</button>
@@ -592,9 +611,9 @@
         <p class="card-desc">A basic circuit board with a switch and LED, showing how closing the circuit lets current flow and light the LED.</p>
         <div class="spec-table">
           <div class="spec-row head"><div>Variant</div><div>Price</div><div></div></div>
-          <div class="spec-row"><div class="spec-mat"><span class="swatch acrylic"></span>Acrylic</div><div class="spec-price"><span class="cur">₹</span>1,650</div><div></div></div>
-          <div class="spec-row"><div class="spec-mat"><span class="swatch mdf"></span>MDF</div><div class="spec-price"><span class="cur">₹</span>1,300</div><div></div></div>
+          <div class="spec-row"><div class="spec-mat"><span class="swatch acrylic"></span>Acrylic</div><div class="spec-price"><span class="cur">₹</span>1,650</div><div></div></div><div class="spec-row"><div class="spec-mat"><span class="swatch mdf"></span>MDF</div><div class="spec-price"><span class="cur">₹</span>1,300</div><div></div></div>
         </div>
+        
         <div class="card-bottom">
           <span class="card-note">Indicative pricing, ex-works</span>
           <button type="button" class="enquire" data-nav="enquire" data-product="Working of a LED / Switch">Enquire →</button>
@@ -620,9 +639,9 @@
         <p class="card-desc">A small hand-wound DC motor mounted for viewing — shows how current through a coil in a magnetic field produces rotation.</p>
         <div class="spec-table">
           <div class="spec-row head"><div>Variant</div><div>Price</div><div></div></div>
-          <div class="spec-row"><div class="spec-mat"><span class="swatch acrylic"></span>Acrylic</div><div class="spec-price"><span class="cur">₹</span>1,650</div><div></div></div>
-          <div class="spec-row"><div class="spec-mat"><span class="swatch mdf"></span>MDF</div><div class="spec-price"><span class="cur">₹</span>1,300</div><div></div></div>
+          <div class="spec-row"><div class="spec-mat"><span class="swatch acrylic"></span>Acrylic</div><div class="spec-price"><span class="cur">₹</span>1,650</div><div></div></div><div class="spec-row"><div class="spec-mat"><span class="swatch mdf"></span>MDF</div><div class="spec-price"><span class="cur">₹</span>1,300</div><div></div></div>
         </div>
+        
         <div class="card-bottom">
           <span class="card-note">Indicative pricing, ex-works</span>
           <button type="button" class="enquire" data-nav="enquire" data-product="Working of a DC Motor">Enquire →</button>
@@ -648,9 +667,9 @@
         <p class="card-desc">A small photovoltaic panel wired to a meter or LED, showing how light is converted directly into electrical current.</p>
         <div class="spec-table">
           <div class="spec-row head"><div>Variant</div><div>Price</div><div></div></div>
-          <div class="spec-row"><div class="spec-mat"><span class="swatch acrylic"></span>Acrylic</div><div class="spec-price"><span class="cur">₹</span>1,650</div><div></div></div>
-          <div class="spec-row"><div class="spec-mat"><span class="swatch mdf"></span>MDF</div><div class="spec-price"><span class="cur">₹</span>1,300</div><div></div></div>
+          <div class="spec-row"><div class="spec-mat"><span class="swatch acrylic"></span>Acrylic</div><div class="spec-price"><span class="cur">₹</span>1,650</div><div></div></div><div class="spec-row"><div class="spec-mat"><span class="swatch mdf"></span>MDF</div><div class="spec-price"><span class="cur">₹</span>1,300</div><div></div></div>
         </div>
+        
         <div class="card-bottom">
           <span class="card-note">Indicative pricing, ex-works</span>
           <button type="button" class="enquire" data-nav="enquire" data-product="Working of a Solar Panel">Enquire →</button>
@@ -682,9 +701,9 @@
         <p class="card-desc">A fixed gnomon casts a shadow onto a graduated dial, showing how the sun's position across the day can be used to tell time.</p>
         <div class="spec-table">
           <div class="spec-row head"><div>Variant</div><div>Price</div><div></div></div>
-          <div class="spec-row"><div class="spec-mat"><span class="swatch acrylic"></span>Acrylic</div><div class="spec-price"><span class="cur">₹</span>1,150</div><div></div></div>
-          <div class="spec-row"><div class="spec-mat"><span class="swatch mdf"></span>MDF</div><div class="spec-price"><span class="cur">₹</span>900</div><div></div></div>
+          <div class="spec-row"><div class="spec-mat"><span class="swatch acrylic"></span>Acrylic</div><div class="spec-price"><span class="cur">₹</span>1,150</div><div></div></div><div class="spec-row"><div class="spec-mat"><span class="swatch mdf"></span>MDF</div><div class="spec-price"><span class="cur">₹</span>900</div><div></div></div>
         </div>
+        
         <div class="card-bottom">
           <span class="card-note">Indicative pricing, ex-works</span>
           <button type="button" class="enquire" data-nav="enquire" data-product="Sundial">Enquire →</button>
@@ -710,9 +729,9 @@
         <p class="card-desc">A bob on a string swings from a fixed point — the basic setup for studying periodic motion.</p>
         <div class="spec-table">
           <div class="spec-row head"><div>Variant</div><div>Price</div><div></div></div>
-          <div class="spec-row"><div class="spec-mat"><span class="swatch acrylic"></span>Acrylic</div><div class="spec-price"><span class="cur">₹</span>1,150</div><div></div></div>
-          <div class="spec-row"><div class="spec-mat"><span class="swatch mdf"></span>MDF</div><div class="spec-price"><span class="cur">₹</span>900</div><div></div></div>
+          <div class="spec-row"><div class="spec-mat"><span class="swatch acrylic"></span>Acrylic</div><div class="spec-price"><span class="cur">₹</span>1,150</div><div></div></div><div class="spec-row"><div class="spec-mat"><span class="swatch mdf"></span>MDF</div><div class="spec-price"><span class="cur">₹</span>900</div><div></div></div>
         </div>
+        
         <div class="card-bottom">
           <span class="card-note">Indicative pricing, ex-works</span>
           <button type="button" class="enquire" data-nav="enquire" data-product="Simple Pendulum">Enquire →</button>
@@ -738,9 +757,9 @@
         <p class="card-desc">Interchangeable string lengths let students time the swing and see how period changes with pendulum length.</p>
         <div class="spec-table">
           <div class="spec-row head"><div>Variant</div><div>Price</div><div></div></div>
-          <div class="spec-row"><div class="spec-mat"><span class="swatch acrylic"></span>Acrylic</div><div class="spec-price"><span class="cur">₹</span>1,150</div><div></div></div>
-          <div class="spec-row"><div class="spec-mat"><span class="swatch mdf"></span>MDF</div><div class="spec-price"><span class="cur">₹</span>900</div><div></div></div>
+          <div class="spec-row"><div class="spec-mat"><span class="swatch acrylic"></span>Acrylic</div><div class="spec-price"><span class="cur">₹</span>1,150</div><div></div></div><div class="spec-row"><div class="spec-mat"><span class="swatch mdf"></span>MDF</div><div class="spec-price"><span class="cur">₹</span>900</div><div></div></div>
         </div>
+        
         <div class="card-bottom">
           <span class="card-note">Indicative pricing, ex-works</span>
           <button type="button" class="enquire" data-nav="enquire" data-product="Simple Pendulum — Period vs. Length">Enquire →</button>
@@ -766,9 +785,9 @@
         <p class="card-desc">Interchangeable bobs and an adjustable swing angle let students test whether period depends on amplitude or mass.</p>
         <div class="spec-table">
           <div class="spec-row head"><div>Variant</div><div>Price</div><div></div></div>
-          <div class="spec-row"><div class="spec-mat"><span class="swatch acrylic"></span>Acrylic</div><div class="spec-price"><span class="cur">₹</span>1,150</div><div></div></div>
-          <div class="spec-row"><div class="spec-mat"><span class="swatch mdf"></span>MDF</div><div class="spec-price"><span class="cur">₹</span>900</div><div></div></div>
+          <div class="spec-row"><div class="spec-mat"><span class="swatch acrylic"></span>Acrylic</div><div class="spec-price"><span class="cur">₹</span>1,150</div><div></div></div><div class="spec-row"><div class="spec-mat"><span class="swatch mdf"></span>MDF</div><div class="spec-price"><span class="cur">₹</span>900</div><div></div></div>
         </div>
+        
         <div class="card-bottom">
           <span class="card-note">Indicative pricing, ex-works</span>
           <button type="button" class="enquire" data-nav="enquire" data-product="Simple Pendulum — Period vs. Amplitude & Mass">Enquire →</button>
@@ -800,9 +819,9 @@
         <p class="card-desc">Angled mirrors inside a tube multiply a small set of loose objects into a repeating symmetrical pattern.</p>
         <div class="spec-table">
           <div class="spec-row head"><div>Variant</div><div>Price</div><div></div></div>
-          <div class="spec-row"><div class="spec-mat"><span class="swatch acrylic"></span>Acrylic</div><div class="spec-price"><span class="cur">₹</span>750</div><div></div></div>
-          <div class="spec-row"><div class="spec-mat"><span class="swatch mdf"></span>MDF</div><div class="spec-price"><span class="cur">₹</span>580</div><div></div></div>
+          <div class="spec-row"><div class="spec-mat"><span class="swatch acrylic"></span>Acrylic</div><div class="spec-price"><span class="cur">₹</span>750</div><div></div></div><div class="spec-row"><div class="spec-mat"><span class="swatch mdf"></span>MDF</div><div class="spec-price"><span class="cur">₹</span>580</div><div></div></div>
         </div>
+        
         <div class="card-bottom">
           <span class="card-note">Indicative pricing, ex-works</span>
           <button type="button" class="enquire" data-nav="enquire" data-product="Kaleidoscope">Enquire →</button>
@@ -828,9 +847,9 @@
         <p class="card-desc">Two parallel mirrors set at 45° let you see over or around an obstacle by redirecting the light path twice.</p>
         <div class="spec-table">
           <div class="spec-row head"><div>Variant</div><div>Price</div><div></div></div>
-          <div class="spec-row"><div class="spec-mat"><span class="swatch acrylic"></span>Acrylic</div><div class="spec-price"><span class="cur">₹</span>750</div><div></div></div>
-          <div class="spec-row"><div class="spec-mat"><span class="swatch mdf"></span>MDF</div><div class="spec-price"><span class="cur">₹</span>580</div><div></div></div>
+          <div class="spec-row"><div class="spec-mat"><span class="swatch acrylic"></span>Acrylic</div><div class="spec-price"><span class="cur">₹</span>750</div><div></div></div><div class="spec-row"><div class="spec-mat"><span class="swatch mdf"></span>MDF</div><div class="spec-price"><span class="cur">₹</span>580</div><div></div></div>
         </div>
+        
         <div class="card-bottom">
           <span class="card-note">Indicative pricing, ex-works</span>
           <button type="button" class="enquire" data-nav="enquire" data-product="Periscope">Enquire →</button>
@@ -856,9 +875,9 @@
         <p class="card-desc">Two mirrors hinged at a variable angle show how the number of images formed changes as the angle between them changes.</p>
         <div class="spec-table">
           <div class="spec-row head"><div>Variant</div><div>Price</div><div></div></div>
-          <div class="spec-row"><div class="spec-mat"><span class="swatch acrylic"></span>Acrylic</div><div class="spec-price"><span class="cur">₹</span>750</div><div></div></div>
-          <div class="spec-row"><div class="spec-mat"><span class="swatch mdf"></span>MDF</div><div class="spec-price"><span class="cur">₹</span>580</div><div></div></div>
+          <div class="spec-row"><div class="spec-mat"><span class="swatch acrylic"></span>Acrylic</div><div class="spec-price"><span class="cur">₹</span>750</div><div></div></div><div class="spec-row"><div class="spec-mat"><span class="swatch mdf"></span>MDF</div><div class="spec-price"><span class="cur">₹</span>580</div><div></div></div>
         </div>
+        
         <div class="card-bottom">
           <span class="card-note">Indicative pricing, ex-works</span>
           <button type="button" class="enquire" data-nav="enquire" data-product="Multiple Reflection">Enquire →</button>
@@ -892,9 +911,9 @@
         <p class="card-desc">A coil of wire wound around an iron nail becomes magnetic only while current flows through it — picks up pins on demand.</p>
         <div class="spec-table">
           <div class="spec-row head"><div>Variant</div><div>Price</div><div></div></div>
-          <div class="spec-row"><div class="spec-mat"><span class="swatch acrylic"></span>Acrylic</div><div class="spec-price"><span class="cur">₹</span>1,650</div><div></div></div>
-          <div class="spec-row"><div class="spec-mat"><span class="swatch mdf"></span>MDF</div><div class="spec-price"><span class="cur">₹</span>1,300</div><div></div></div>
+          <div class="spec-row"><div class="spec-mat"><span class="swatch acrylic"></span>Acrylic</div><div class="spec-price"><span class="cur">₹</span>1,650</div><div></div></div><div class="spec-row"><div class="spec-mat"><span class="swatch mdf"></span>MDF</div><div class="spec-price"><span class="cur">₹</span>1,300</div><div></div></div>
         </div>
+        
         <div class="card-bottom">
           <span class="card-note">Indicative pricing, ex-works</span>
           <button type="button" class="enquire" data-nav="enquire" data-product="Electromagnet">Enquire →</button>
@@ -920,9 +939,9 @@
         <p class="card-desc">A resistance wire glows and warms a nearby thermometer as current passes through it, showing electrical energy converting to heat.</p>
         <div class="spec-table">
           <div class="spec-row head"><div>Variant</div><div>Price</div><div></div></div>
-          <div class="spec-row"><div class="spec-mat"><span class="swatch acrylic"></span>Acrylic</div><div class="spec-price"><span class="cur">₹</span>1,650</div><div></div></div>
-          <div class="spec-row"><div class="spec-mat"><span class="swatch mdf"></span>MDF</div><div class="spec-price"><span class="cur">₹</span>1,300</div><div></div></div>
+          <div class="spec-row"><div class="spec-mat"><span class="swatch acrylic"></span>Acrylic</div><div class="spec-price"><span class="cur">₹</span>1,650</div><div></div></div><div class="spec-row"><div class="spec-mat"><span class="swatch mdf"></span>MDF</div><div class="spec-price"><span class="cur">₹</span>1,300</div><div></div></div>
         </div>
+        
         <div class="card-bottom">
           <span class="card-note">Indicative pricing, ex-works</span>
           <button type="button" class="enquire" data-nav="enquire" data-product="Heating Effect of Current">Enquire →</button>
@@ -954,9 +973,9 @@
         <p class="card-desc">Interchangeable concave and convex mirror inserts let students compare how each type distorts or resizes a reflected image.</p>
         <div class="spec-table">
           <div class="spec-row head"><div>Variant</div><div>Price</div><div></div></div>
-          <div class="spec-row"><div class="spec-mat"><span class="swatch acrylic"></span>Acrylic</div><div class="spec-price"><span class="cur">₹</span>750</div><div></div></div>
-          <div class="spec-row"><div class="spec-mat"><span class="swatch mdf"></span>MDF</div><div class="spec-price"><span class="cur">₹</span>580</div><div></div></div>
+          <div class="spec-row"><div class="spec-mat"><span class="swatch acrylic"></span>Acrylic</div><div class="spec-price"><span class="cur">₹</span>750</div><div></div></div><div class="spec-row"><div class="spec-mat"><span class="swatch mdf"></span>MDF</div><div class="spec-price"><span class="cur">₹</span>580</div><div></div></div>
         </div>
+        
         <div class="card-bottom">
           <span class="card-note">Indicative pricing, ex-works</span>
           <button type="button" class="enquire" data-nav="enquire" data-product="Curved Image due to Mirror">Enquire →</button>
@@ -990,9 +1009,9 @@
         <p class="card-desc">A cross-sectional model of an animal cell with labelled, distinguishable organelles for direct identification.</p>
         <div class="spec-table">
           <div class="spec-row head"><div>Variant</div><div>Price</div><div></div></div>
-          <div class="spec-row"><div class="spec-mat"><span class="swatch acrylic"></span>Acrylic</div><div class="spec-price"><span class="cur">₹</span>1,150</div><div></div></div>
-          <div class="spec-row"><div class="spec-mat"><span class="swatch mdf"></span>MDF</div><div class="spec-price"><span class="cur">₹</span>900</div><div></div></div>
+          <div class="spec-row"><div class="spec-mat"><span class="swatch acrylic"></span>Acrylic</div><div class="spec-price"><span class="cur">₹</span>1,150</div><div></div></div><div class="spec-row"><div class="spec-mat"><span class="swatch mdf"></span>MDF</div><div class="spec-price"><span class="cur">₹</span>900</div><div></div></div>
         </div>
+        
         <div class="card-bottom">
           <span class="card-note">Indicative pricing, ex-works</span>
           <button type="button" class="enquire" data-nav="enquire" data-product="Animal Cell">Enquire →</button>
@@ -1018,9 +1037,9 @@
         <p class="card-desc">A cross-sectional model of a plant cell, including the cell wall, chloroplasts and central vacuole alongside the organelles shared with animal cells.</p>
         <div class="spec-table">
           <div class="spec-row head"><div>Variant</div><div>Price</div><div></div></div>
-          <div class="spec-row"><div class="spec-mat"><span class="swatch acrylic"></span>Acrylic</div><div class="spec-price"><span class="cur">₹</span>1,150</div><div></div></div>
-          <div class="spec-row"><div class="spec-mat"><span class="swatch mdf"></span>MDF</div><div class="spec-price"><span class="cur">₹</span>900</div><div></div></div>
+          <div class="spec-row"><div class="spec-mat"><span class="swatch acrylic"></span>Acrylic</div><div class="spec-price"><span class="cur">₹</span>1,150</div><div></div></div><div class="spec-row"><div class="spec-mat"><span class="swatch mdf"></span>MDF</div><div class="spec-price"><span class="cur">₹</span>900</div><div></div></div>
         </div>
+        
         <div class="card-bottom">
           <span class="card-note">Indicative pricing, ex-works</span>
           <button type="button" class="enquire" data-nav="enquire" data-product="Plant Cell">Enquire →</button>
@@ -1052,9 +1071,9 @@
         <p class="card-desc">A hand-cranked spinning platform demonstrates how rotation separates particles of different densities outward from the centre.</p>
         <div class="spec-table">
           <div class="spec-row head"><div>Variant</div><div>Price</div><div></div></div>
-          <div class="spec-row"><div class="spec-mat"><span class="swatch acrylic"></span>Acrylic</div><div class="spec-price"><span class="cur">₹</span>1,150</div><div></div></div>
-          <div class="spec-row"><div class="spec-mat"><span class="swatch mdf"></span>MDF</div><div class="spec-price"><span class="cur">₹</span>900</div><div></div></div>
+          <div class="spec-row"><div class="spec-mat"><span class="swatch acrylic"></span>Acrylic</div><div class="spec-price"><span class="cur">₹</span>1,150</div><div></div></div><div class="spec-row"><div class="spec-mat"><span class="swatch mdf"></span>MDF</div><div class="spec-price"><span class="cur">₹</span>900</div><div></div></div>
         </div>
+        
         <div class="card-bottom">
           <span class="card-note">Indicative pricing, ex-works</span>
           <button type="button" class="enquire" data-nav="enquire" data-product="Centrifugal Machine">Enquire →</button>
@@ -1086,9 +1105,9 @@
         <p class="card-desc">A ball released from a fixed height on a curved track shows potential energy converting to kinetic energy and back, run after run.</p>
         <div class="spec-table">
           <div class="spec-row head"><div>Variant</div><div>Price</div><div></div></div>
-          <div class="spec-row"><div class="spec-mat"><span class="swatch acrylic"></span>Acrylic</div><div class="spec-price"><span class="cur">₹</span>1,650</div><div></div></div>
-          <div class="spec-row"><div class="spec-mat"><span class="swatch mdf"></span>MDF</div><div class="spec-price"><span class="cur">₹</span>1,300</div><div></div></div>
+          <div class="spec-row"><div class="spec-mat"><span class="swatch acrylic"></span>Acrylic</div><div class="spec-price"><span class="cur">₹</span>1,650</div><div></div></div><div class="spec-row"><div class="spec-mat"><span class="swatch mdf"></span>MDF</div><div class="spec-price"><span class="cur">₹</span>1,300</div><div></div></div>
         </div>
+        
         <div class="card-bottom">
           <span class="card-note">Indicative pricing, ex-works</span>
           <button type="button" class="enquire" data-nav="enquire" data-product="Conservation of Energy">Enquire →</button>
@@ -1114,9 +1133,9 @@
         <p class="card-desc">An adjustable-fulcrum beam with hanging weights lets students test how effort, load and fulcrum position affect mechanical advantage.</p>
         <div class="spec-table">
           <div class="spec-row head"><div>Variant</div><div>Price</div><div></div></div>
-          <div class="spec-row"><div class="spec-mat"><span class="swatch acrylic"></span>Acrylic</div><div class="spec-price"><span class="cur">₹</span>750</div><div></div></div>
-          <div class="spec-row"><div class="spec-mat"><span class="swatch mdf"></span>MDF</div><div class="spec-price"><span class="cur">₹</span>580</div><div></div></div>
+          <div class="spec-row"><div class="spec-mat"><span class="swatch acrylic"></span>Acrylic</div><div class="spec-price"><span class="cur">₹</span>750</div><div></div></div><div class="spec-row"><div class="spec-mat"><span class="swatch mdf"></span>MDF</div><div class="spec-price"><span class="cur">₹</span>580</div><div></div></div>
         </div>
+        
         <div class="card-bottom">
           <span class="card-note">Indicative pricing, ex-works</span>
           <button type="button" class="enquire" data-nav="enquire" data-product="Lever">Enquire →</button>
@@ -1142,9 +1161,9 @@
         <p class="card-desc">A single or combined pulley set shows how redirecting a rope over a wheel changes the force needed to lift a load.</p>
         <div class="spec-table">
           <div class="spec-row head"><div>Variant</div><div>Price</div><div></div></div>
-          <div class="spec-row"><div class="spec-mat"><span class="swatch acrylic"></span>Acrylic</div><div class="spec-price"><span class="cur">₹</span>750</div><div></div></div>
-          <div class="spec-row"><div class="spec-mat"><span class="swatch mdf"></span>MDF</div><div class="spec-price"><span class="cur">₹</span>580</div><div></div></div>
+          <div class="spec-row"><div class="spec-mat"><span class="swatch acrylic"></span>Acrylic</div><div class="spec-price"><span class="cur">₹</span>750</div><div></div></div><div class="spec-row"><div class="spec-mat"><span class="swatch mdf"></span>MDF</div><div class="spec-price"><span class="cur">₹</span>580</div><div></div></div>
         </div>
+        
         <div class="card-bottom">
           <span class="card-note">Indicative pricing, ex-works</span>
           <button type="button" class="enquire" data-nav="enquire" data-product="Pulley">Enquire →</button>
@@ -1176,9 +1195,9 @@
         <p class="card-desc">A structured reference board laying out atomic models and element data for classroom discussion of atomic structure.</p>
         <div class="spec-table">
           <div class="spec-row head"><div>Variant</div><div>Price</div><div></div></div>
-          <div class="spec-row"><div class="spec-mat"><span class="swatch acrylic"></span>Acrylic</div><div class="spec-price"><span class="cur">₹</span>1,650</div><div></div></div>
-          <div class="spec-row"><div class="spec-mat"><span class="swatch mdf"></span>MDF</div><div class="spec-price"><span class="cur">₹</span>1,300</div><div></div></div>
+          <div class="spec-row"><div class="spec-mat"><span class="swatch acrylic"></span>Acrylic</div><div class="spec-price"><span class="cur">₹</span>1,650</div><div></div></div><div class="spec-row"><div class="spec-mat"><span class="swatch mdf"></span>MDF</div><div class="spec-price"><span class="cur">₹</span>1,300</div><div></div></div>
         </div>
+        
         <div class="card-bottom">
           <span class="card-note">Indicative pricing, ex-works</span>
           <button type="button" class="enquire" data-nav="enquire" data-product="Atomic Table">Enquire →</button>
@@ -1204,9 +1223,9 @@
         <p class="card-desc">A physical model showing electron arrangement around a nucleus, used to introduce shell structure and valency.</p>
         <div class="spec-table">
           <div class="spec-row head"><div>Variant</div><div>Price</div><div></div></div>
-          <div class="spec-row"><div class="spec-mat"><span class="swatch acrylic"></span>Acrylic</div><div class="spec-price"><span class="cur">₹</span>1,650</div><div></div></div>
-          <div class="spec-row"><div class="spec-mat"><span class="swatch mdf"></span>MDF</div><div class="spec-price"><span class="cur">₹</span>1,300</div><div></div></div>
+          <div class="spec-row"><div class="spec-mat"><span class="swatch acrylic"></span>Acrylic</div><div class="spec-price"><span class="cur">₹</span>1,650</div><div></div></div><div class="spec-row"><div class="spec-mat"><span class="swatch mdf"></span>MDF</div><div class="spec-price"><span class="cur">₹</span>1,300</div><div></div></div>
         </div>
+        
         <div class="card-bottom">
           <span class="card-note">Indicative pricing, ex-works</span>
           <button type="button" class="enquire" data-nav="enquire" data-product="Model of Electrons">Enquire →</button>
@@ -1238,9 +1257,9 @@
         <p class="card-desc">A sound source that can be moved toward or away from a fixed listener demonstrates the pitch shift caused by relative motion.</p>
         <div class="spec-table">
           <div class="spec-row head"><div>Variant</div><div>Price</div><div></div></div>
-          <div class="spec-row"><div class="spec-mat"><span class="swatch acrylic"></span>Acrylic</div><div class="spec-price"><span class="cur">₹</span>1,150</div><div></div></div>
-          <div class="spec-row"><div class="spec-mat"><span class="swatch mdf"></span>MDF</div><div class="spec-price"><span class="cur">₹</span>900</div><div></div></div>
+          <div class="spec-row"><div class="spec-mat"><span class="swatch acrylic"></span>Acrylic</div><div class="spec-price"><span class="cur">₹</span>1,150</div><div></div></div><div class="spec-row"><div class="spec-mat"><span class="swatch mdf"></span>MDF</div><div class="spec-price"><span class="cur">₹</span>900</div><div></div></div>
         </div>
+        
         <div class="card-bottom">
           <span class="card-note">Indicative pricing, ex-works</span>
           <button type="button" class="enquire" data-nav="enquire" data-product="Doppler Effect">Enquire →</button>
@@ -1274,9 +1293,9 @@
         <p class="card-desc">A bimetallic-strip switch bends with temperature change, automatically breaking or completing a circuit — the basis of a thermostat.</p>
         <div class="spec-table">
           <div class="spec-row head"><div>Variant</div><div>Price</div><div></div></div>
-          <div class="spec-row"><div class="spec-mat"><span class="swatch acrylic"></span>Acrylic</div><div class="spec-price"><span class="cur">₹</span>1,650</div><div></div></div>
-          <div class="spec-row"><div class="spec-mat"><span class="swatch mdf"></span>MDF</div><div class="spec-price"><span class="cur">₹</span>1,300</div><div></div></div>
+          <div class="spec-row"><div class="spec-mat"><span class="swatch acrylic"></span>Acrylic</div><div class="spec-price"><span class="cur">₹</span>1,650</div><div></div></div><div class="spec-row"><div class="spec-mat"><span class="swatch mdf"></span>MDF</div><div class="spec-price"><span class="cur">₹</span>1,300</div><div></div></div>
         </div>
+        
         <div class="card-bottom">
           <span class="card-note">Indicative pricing, ex-works</span>
           <button type="button" class="enquire" data-nav="enquire" data-product="Working of a Heat Switch">Enquire →</button>
@@ -1302,9 +1321,9 @@
         <p class="card-desc">Two coils wound on a shared iron core show how alternating current in one coil induces voltage in the other.</p>
         <div class="spec-table">
           <div class="spec-row head"><div>Variant</div><div>Price</div><div></div></div>
-          <div class="spec-row"><div class="spec-mat"><span class="swatch acrylic"></span>Acrylic</div><div class="spec-price"><span class="cur">₹</span>1,650</div><div></div></div>
-          <div class="spec-row"><div class="spec-mat"><span class="swatch mdf"></span>MDF</div><div class="spec-price"><span class="cur">₹</span>1,300</div><div></div></div>
+          <div class="spec-row"><div class="spec-mat"><span class="swatch acrylic"></span>Acrylic</div><div class="spec-price"><span class="cur">₹</span>1,650</div><div></div></div><div class="spec-row"><div class="spec-mat"><span class="swatch mdf"></span>MDF</div><div class="spec-price"><span class="cur">₹</span>1,300</div><div></div></div>
         </div>
+        
         <div class="card-bottom">
           <span class="card-note">Indicative pricing, ex-works</span>
           <button type="button" class="enquire" data-nav="enquire" data-product="Working of a Transformer">Enquire →</button>
@@ -1330,9 +1349,9 @@
         <p class="card-desc">A mounted transistor wired into a simple switching circuit demonstrates how a small base current controls a larger current.</p>
         <div class="spec-table">
           <div class="spec-row head"><div>Variant</div><div>Price</div><div></div></div>
-          <div class="spec-row"><div class="spec-mat"><span class="swatch acrylic"></span>Acrylic</div><div class="spec-price"><span class="cur">₹</span>1,650</div><div></div></div>
-          <div class="spec-row"><div class="spec-mat"><span class="swatch mdf"></span>MDF</div><div class="spec-price"><span class="cur">₹</span>1,300</div><div></div></div>
+          <div class="spec-row"><div class="spec-mat"><span class="swatch acrylic"></span>Acrylic</div><div class="spec-price"><span class="cur">₹</span>1,650</div><div></div></div><div class="spec-row"><div class="spec-mat"><span class="swatch mdf"></span>MDF</div><div class="spec-price"><span class="cur">₹</span>1,300</div><div></div></div>
         </div>
+        
         <div class="card-bottom">
           <span class="card-note">Indicative pricing, ex-works</span>
           <button type="button" class="enquire" data-nav="enquire" data-product="Working of a Transistor">Enquire →</button>
@@ -1358,9 +1377,9 @@
         <p class="card-desc">Multiple bulbs wired end-to-end show how current, voltage and brightness behave when components share a single current path.</p>
         <div class="spec-table">
           <div class="spec-row head"><div>Variant</div><div>Price</div><div></div></div>
-          <div class="spec-row"><div class="spec-mat"><span class="swatch acrylic"></span>Acrylic</div><div class="spec-price"><span class="cur">₹</span>1,650</div><div></div></div>
-          <div class="spec-row"><div class="spec-mat"><span class="swatch mdf"></span>MDF</div><div class="spec-price"><span class="cur">₹</span>1,300</div><div></div></div>
+          <div class="spec-row"><div class="spec-mat"><span class="swatch acrylic"></span>Acrylic</div><div class="spec-price"><span class="cur">₹</span>1,650</div><div></div></div><div class="spec-row"><div class="spec-mat"><span class="swatch mdf"></span>MDF</div><div class="spec-price"><span class="cur">₹</span>1,300</div><div></div></div>
         </div>
+        
         <div class="card-bottom">
           <span class="card-note">Indicative pricing, ex-works</span>
           <button type="button" class="enquire" data-nav="enquire" data-product="Series Circuit">Enquire →</button>
@@ -1386,9 +1405,9 @@
         <p class="card-desc">Multiple bulbs wired across shared junctions show how voltage stays constant and current divides across parallel branches.</p>
         <div class="spec-table">
           <div class="spec-row head"><div>Variant</div><div>Price</div><div></div></div>
-          <div class="spec-row"><div class="spec-mat"><span class="swatch acrylic"></span>Acrylic</div><div class="spec-price"><span class="cur">₹</span>1,650</div><div></div></div>
-          <div class="spec-row"><div class="spec-mat"><span class="swatch mdf"></span>MDF</div><div class="spec-price"><span class="cur">₹</span>1,300</div><div></div></div>
+          <div class="spec-row"><div class="spec-mat"><span class="swatch acrylic"></span>Acrylic</div><div class="spec-price"><span class="cur">₹</span>1,650</div><div></div></div><div class="spec-row"><div class="spec-mat"><span class="swatch mdf"></span>MDF</div><div class="spec-price"><span class="cur">₹</span>1,300</div><div></div></div>
         </div>
+        
         <div class="card-bottom">
           <span class="card-note">Indicative pricing, ex-works</span>
           <button type="button" class="enquire" data-nav="enquire" data-product="Parallel Circuit">Enquire →</button>
@@ -1414,9 +1433,9 @@
         <p class="card-desc">A thin fuse wire in a live circuit visibly melts and breaks the circuit when current exceeds a safe limit.</p>
         <div class="spec-table">
           <div class="spec-row head"><div>Variant</div><div>Price</div><div></div></div>
-          <div class="spec-row"><div class="spec-mat"><span class="swatch acrylic"></span>Acrylic</div><div class="spec-price"><span class="cur">₹</span>1,650</div><div></div></div>
-          <div class="spec-row"><div class="spec-mat"><span class="swatch mdf"></span>MDF</div><div class="spec-price"><span class="cur">₹</span>1,300</div><div></div></div>
+          <div class="spec-row"><div class="spec-mat"><span class="swatch acrylic"></span>Acrylic</div><div class="spec-price"><span class="cur">₹</span>1,650</div><div></div></div><div class="spec-row"><div class="spec-mat"><span class="swatch mdf"></span>MDF</div><div class="spec-price"><span class="cur">₹</span>1,300</div><div></div></div>
         </div>
+        
         <div class="card-bottom">
           <span class="card-note">Indicative pricing, ex-works</span>
           <button type="button" class="enquire" data-nav="enquire" data-product="Working of a Fuse">Enquire →</button>
@@ -1442,9 +1461,9 @@
         <p class="card-desc">Swappable resistor and diode components in a test circuit show how each affects current flow differently.</p>
         <div class="spec-table">
           <div class="spec-row head"><div>Variant</div><div>Price</div><div></div></div>
-          <div class="spec-row"><div class="spec-mat"><span class="swatch acrylic"></span>Acrylic</div><div class="spec-price"><span class="cur">₹</span>1,650</div><div></div></div>
-          <div class="spec-row"><div class="spec-mat"><span class="swatch mdf"></span>MDF</div><div class="spec-price"><span class="cur">₹</span>1,300</div><div></div></div>
+          <div class="spec-row"><div class="spec-mat"><span class="swatch acrylic"></span>Acrylic</div><div class="spec-price"><span class="cur">₹</span>1,650</div><div></div></div><div class="spec-row"><div class="spec-mat"><span class="swatch mdf"></span>MDF</div><div class="spec-price"><span class="cur">₹</span>1,300</div><div></div></div>
         </div>
+        
         <div class="card-bottom">
           <span class="card-note">Indicative pricing, ex-works</span>
           <button type="button" class="enquire" data-nav="enquire" data-product="Working of a Resistor / Diode">Enquire →</button>
@@ -1470,9 +1489,9 @@
         <p class="card-desc">An adjustable-resistance circuit with an ammeter and voltmeter lets students verify the voltage–current relationship directly.</p>
         <div class="spec-table">
           <div class="spec-row head"><div>Variant</div><div>Price</div><div></div></div>
-          <div class="spec-row"><div class="spec-mat"><span class="swatch acrylic"></span>Acrylic</div><div class="spec-price"><span class="cur">₹</span>1,650</div><div></div></div>
-          <div class="spec-row"><div class="spec-mat"><span class="swatch mdf"></span>MDF</div><div class="spec-price"><span class="cur">₹</span>1,300</div><div></div></div>
+          <div class="spec-row"><div class="spec-mat"><span class="swatch acrylic"></span>Acrylic</div><div class="spec-price"><span class="cur">₹</span>1,650</div><div></div></div><div class="spec-row"><div class="spec-mat"><span class="swatch mdf"></span>MDF</div><div class="spec-price"><span class="cur">₹</span>1,300</div><div></div></div>
         </div>
+        
         <div class="card-bottom">
           <span class="card-note">Indicative pricing, ex-works</span>
           <button type="button" class="enquire" data-nav="enquire" data-product="Ohm's Law">Enquire →</button>
@@ -1504,9 +1523,9 @@
         <p class="card-desc">A single current-carrying circular loop mounted with a compass shows the magnetic field it produces at its centre.</p>
         <div class="spec-table">
           <div class="spec-row head"><div>Variant</div><div>Price</div><div></div></div>
-          <div class="spec-row"><div class="spec-mat"><span class="swatch acrylic"></span>Acrylic</div><div class="spec-price"><span class="cur">₹</span>1,150</div><div></div></div>
-          <div class="spec-row"><div class="spec-mat"><span class="swatch mdf"></span>MDF</div><div class="spec-price"><span class="cur">₹</span>900</div><div></div></div>
+          <div class="spec-row"><div class="spec-mat"><span class="swatch acrylic"></span>Acrylic</div><div class="spec-price"><span class="cur">₹</span>1,150</div><div></div></div><div class="spec-row"><div class="spec-mat"><span class="swatch mdf"></span>MDF</div><div class="spec-price"><span class="cur">₹</span>900</div><div></div></div>
         </div>
+        
         <div class="card-bottom">
           <span class="card-note">Indicative pricing, ex-works</span>
           <button type="button" class="enquire" data-nav="enquire" data-product="Circular Coil">Enquire →</button>
@@ -1532,9 +1551,9 @@
         <p class="card-desc">A demonstration of the force between two current-carrying conductors, showing attraction or repulsion depending on current direction.</p>
         <div class="spec-table">
           <div class="spec-row head"><div>Variant</div><div>Price</div><div></div></div>
-          <div class="spec-row"><div class="spec-mat"><span class="swatch acrylic"></span>Acrylic</div><div class="spec-price"><span class="cur">₹</span>1,150</div><div></div></div>
-          <div class="spec-row"><div class="spec-mat"><span class="swatch mdf"></span>MDF</div><div class="spec-price"><span class="cur">₹</span>900</div><div></div></div>
+          <div class="spec-row"><div class="spec-mat"><span class="swatch acrylic"></span>Acrylic</div><div class="spec-price"><span class="cur">₹</span>1,150</div><div></div></div><div class="spec-row"><div class="spec-mat"><span class="swatch mdf"></span>MDF</div><div class="spec-price"><span class="cur">₹</span>900</div><div></div></div>
         </div>
+        
         <div class="card-bottom">
           <span class="card-note">Indicative pricing, ex-works</span>
           <button type="button" class="enquire" data-nav="enquire" data-product="Ampere's Model">Enquire →</button>
@@ -1560,9 +1579,9 @@
         <p class="card-desc">A straight current-carrying conductor suspended over a compass needle deflects it — recreating Oersted's original 1820 observation.</p>
         <div class="spec-table">
           <div class="spec-row head"><div>Variant</div><div>Price</div><div></div></div>
-          <div class="spec-row"><div class="spec-mat"><span class="swatch acrylic"></span>Acrylic</div><div class="spec-price"><span class="cur">₹</span>1,150</div><div></div></div>
-          <div class="spec-row"><div class="spec-mat"><span class="swatch mdf"></span>MDF</div><div class="spec-price"><span class="cur">₹</span>900</div><div></div></div>
+          <div class="spec-row"><div class="spec-mat"><span class="swatch acrylic"></span>Acrylic</div><div class="spec-price"><span class="cur">₹</span>1,150</div><div></div></div><div class="spec-row"><div class="spec-mat"><span class="swatch mdf"></span>MDF</div><div class="spec-price"><span class="cur">₹</span>900</div><div></div></div>
         </div>
+        
         <div class="card-bottom">
           <span class="card-note">Indicative pricing, ex-works</span>
           <button type="button" class="enquire" data-nav="enquire" data-product="Oersted Experiment">Enquire →</button>
@@ -1588,9 +1607,9 @@
         <p class="card-desc">A magnetic sample loses its magnetism when heated past a threshold temperature and regains it on cooling, demonstrating the Curie point.</p>
         <div class="spec-table">
           <div class="spec-row head"><div>Variant</div><div>Price</div><div></div></div>
-          <div class="spec-row"><div class="spec-mat"><span class="swatch acrylic"></span>Acrylic</div><div class="spec-price"><span class="cur">₹</span>1,150</div><div></div></div>
-          <div class="spec-row"><div class="spec-mat"><span class="swatch mdf"></span>MDF</div><div class="spec-price"><span class="cur">₹</span>900</div><div></div></div>
+          <div class="spec-row"><div class="spec-mat"><span class="swatch acrylic"></span>Acrylic</div><div class="spec-price"><span class="cur">₹</span>1,150</div><div></div></div><div class="spec-row"><div class="spec-mat"><span class="swatch mdf"></span>MDF</div><div class="spec-price"><span class="cur">₹</span>900</div><div></div></div>
         </div>
+        
         <div class="card-bottom">
           <span class="card-note">Indicative pricing, ex-works</span>
           <button type="button" class="enquire" data-nav="enquire" data-product="Curie Point">Enquire →</button>
@@ -1616,9 +1635,9 @@
         <p class="card-desc">A hand-wound coil on a frame with a compass slot at its centre lets students compare field strength inside versus outside the loop.</p>
         <div class="spec-table">
           <div class="spec-row head"><div>Variant</div><div>Price</div><div></div></div>
-          <div class="spec-row"><div class="spec-mat"><span class="swatch acrylic"></span>Acrylic</div><div class="spec-price"><span class="cur">₹</span>1,150</div><div></div></div>
-          <div class="spec-row"><div class="spec-mat"><span class="swatch mdf"></span>MDF</div><div class="spec-price"><span class="cur">₹</span>900</div><div></div></div>
+          <div class="spec-row"><div class="spec-mat"><span class="swatch acrylic"></span>Acrylic</div><div class="spec-price"><span class="cur">₹</span>1,150</div><div></div></div><div class="spec-row"><div class="spec-mat"><span class="swatch mdf"></span>MDF</div><div class="spec-price"><span class="cur">₹</span>900</div><div></div></div>
         </div>
+        
         <div class="card-bottom">
           <span class="card-note">Indicative pricing, ex-works</span>
           <button type="button" class="enquire" data-nav="enquire" data-product="Field due to Circular Coil">Enquire →</button>
@@ -1657,9 +1676,9 @@
         <p class="card-desc">A set of laser-cut polygon tiles paired with a hinged mirror-line board for exploring line symmetry by direct reflection.</p>
         <div class="spec-table">
           <div class="spec-row head"><div>Variant</div><div>Price</div><div></div></div>
-          <div class="spec-row"><div class="spec-mat"><span class="swatch acrylic"></span>Acrylic</div><div class="spec-price"><span class="cur">₹</span>800</div><div></div></div>
-          <div class="spec-row"><div class="spec-mat"><span class="swatch mdf"></span>MDF</div><div class="spec-price"><span class="cur">₹</span>600</div><div></div></div>
+          <div class="spec-row"><div class="spec-mat"><span class="swatch acrylic"></span>Acrylic</div><div class="spec-price"><span class="cur">₹</span>800</div><div></div></div><div class="spec-row"><div class="spec-mat"><span class="swatch mdf"></span>MDF</div><div class="spec-price"><span class="cur">₹</span>600</div><div></div></div>
         </div>
+        
         <div class="card-bottom">
           <span class="card-note">Indicative pricing, ex-works</span>
           <button type="button" class="enquire" data-nav="enquire" data-product="Elementary Shapes & Symmetry Board">Enquire →</button>
@@ -1693,9 +1712,9 @@
         <p class="card-desc">Interlocking acrylic triangle cut-outs that students overlay to test SSS, SAS and ASA congruence rules by hand.</p>
         <div class="spec-table">
           <div class="spec-row head"><div>Variant</div><div>Price</div><div></div></div>
-          <div class="spec-row"><div class="spec-mat"><span class="swatch acrylic"></span>Acrylic</div><div class="spec-price"><span class="cur">₹</span>750</div><div></div></div>
-          <div class="spec-row"><div class="spec-mat"><span class="swatch mdf"></span>MDF</div><div class="spec-price"><span class="cur">₹</span>600</div><div></div></div>
+          <div class="spec-row"><div class="spec-mat"><span class="swatch acrylic"></span>Acrylic</div><div class="spec-price"><span class="cur">₹</span>750</div><div></div></div><div class="spec-row"><div class="spec-mat"><span class="swatch mdf"></span>MDF</div><div class="spec-price"><span class="cur">₹</span>600</div><div></div></div>
         </div>
+        
         <div class="card-bottom">
           <span class="card-note">Indicative pricing, ex-works</span>
           <button type="button" class="enquire" data-nav="enquire" data-product="Triangle Congruence Demonstrator">Enquire →</button>
@@ -1729,9 +1748,9 @@
         <p class="card-desc">An adjustable hinged-side quadrilateral frame that flexes between parallelogram, rhombus and trapezium to compare angle and side properties.</p>
         <div class="spec-table">
           <div class="spec-row head"><div>Variant</div><div>Price</div><div></div></div>
-          <div class="spec-row"><div class="spec-mat"><span class="swatch acrylic"></span>Acrylic</div><div class="spec-price"><span class="cur">₹</span>900</div><div></div></div>
-          <div class="spec-row"><div class="spec-mat"><span class="swatch mdf"></span>MDF</div><div class="spec-price"><span class="cur">₹</span>700</div><div></div></div>
+          <div class="spec-row"><div class="spec-mat"><span class="swatch acrylic"></span>Acrylic</div><div class="spec-price"><span class="cur">₹</span>900</div><div></div></div><div class="spec-row"><div class="spec-mat"><span class="swatch mdf"></span>MDF</div><div class="spec-price"><span class="cur">₹</span>700</div><div></div></div>
         </div>
+        
         <div class="card-bottom">
           <span class="card-note">Indicative pricing, ex-works</span>
           <button type="button" class="enquire" data-nav="enquire" data-product="Quadrilateral Property Kit">Enquire →</button>
@@ -1765,9 +1784,9 @@
         <p class="card-desc">A triangle mounted over a unit-grid backing, used to visually verify Heron's formula against a direct grid-square area count.</p>
         <div class="spec-table">
           <div class="spec-row head"><div>Variant</div><div>Price</div><div></div></div>
-          <div class="spec-row"><div class="spec-mat"><span class="swatch acrylic"></span>Acrylic</div><div class="spec-price"><span class="cur">₹</span>850</div><div></div></div>
-          <div class="spec-row"><div class="spec-mat"><span class="swatch mdf"></span>MDF</div><div class="spec-price"><span class="cur">₹</span>650</div><div></div></div>
+          <div class="spec-row"><div class="spec-mat"><span class="swatch acrylic"></span>Acrylic</div><div class="spec-price"><span class="cur">₹</span>850</div><div></div></div><div class="spec-row"><div class="spec-mat"><span class="swatch mdf"></span>MDF</div><div class="spec-price"><span class="cur">₹</span>650</div><div></div></div>
         </div>
+        
         <div class="card-bottom">
           <span class="card-note">Indicative pricing, ex-works</span>
           <button type="button" class="enquire" data-nav="enquire" data-product="Heron's Formula Area-Proof Board">Enquire →</button>
@@ -1801,9 +1820,9 @@
         <p class="card-desc">A rotating right-triangle arm against a fixed protractor base — sin, cos and tan ratios can be read off directly as the angle changes.</p>
         <div class="spec-table">
           <div class="spec-row head"><div>Variant</div><div>Price</div><div></div></div>
-          <div class="spec-row"><div class="spec-mat"><span class="swatch acrylic"></span>Acrylic</div><div class="spec-price"><span class="cur">₹</span>1,400</div><div></div></div>
-          <div class="spec-row"><div class="spec-mat"><span class="swatch mdf"></span>MDF</div><div class="spec-price"><span class="cur">₹</span>1,100</div><div></div></div>
+          <div class="spec-row"><div class="spec-mat"><span class="swatch acrylic"></span>Acrylic</div><div class="spec-price"><span class="cur">₹</span>1,400</div><div></div></div><div class="spec-row"><div class="spec-mat"><span class="swatch mdf"></span>MDF</div><div class="spec-price"><span class="cur">₹</span>1,100</div><div></div></div>
         </div>
+        
         <div class="card-bottom">
           <span class="card-note">Indicative pricing, ex-works</span>
           <button type="button" class="enquire" data-nav="enquire" data-product="Trigonometric Ratio Demonstrator">Enquire →</button>
