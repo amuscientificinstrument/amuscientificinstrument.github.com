@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>AMU Scientific Instruments — Physics &amp; Maths Demonstration Apparatus</title>
+<link rel="icon" type="image/png" href="images/amu-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -15,6 +16,7 @@
   }
   *{box-sizing:border-box;}
   html{scroll-behavior:smooth;}
+  html, body{max-width:100%; overflow-x:clip;}
   body{margin:0; background:var(--bg); color:var(--ink); font-family:'IBM Plex Sans', sans-serif; -webkit-font-smoothing:antialiased;}
   .mono{font-family:'IBM Plex Mono', monospace;}
   .grid-bg{background-image:linear-gradient(var(--line) 1px, transparent 1px), linear-gradient(90deg, var(--line) 1px, transparent 1px); background-size:32px 32px; background-position:-1px -1px;}
@@ -35,7 +37,15 @@
   }
 
   /* ---------- HEADER ---------- */
-  header{border-bottom:1px solid var(--line-strong); background:var(--bg-panel); position:sticky; top:0; z-index:50;}
+  header{
+    border-bottom:1px solid var(--line-strong); background:var(--bg-panel);
+    position:sticky; top:0; z-index:50;
+    transition:box-shadow .25s ease, border-color .25s ease;
+  }
+  header.is-locked{
+    box-shadow:0 4px 14px rgba(20,24,31,0.08);
+    border-bottom-color:transparent;
+  }
   .header-inner{display:flex; align-items:center; justify-content:space-between; padding:18px 28px; max-width:1180px; margin:0 auto;}
   .brand{display:flex; align-items:baseline; gap:10px; text-decoration:none; cursor:pointer; background:none; border:none; padding:0;}
   .brand-mark{font-family:'IBM Plex Mono', monospace; font-weight:700; font-size:22px; letter-spacing:0.02em; border:1.5px solid var(--ink); padding:2px 8px; color:var(--ink);}
@@ -70,6 +80,7 @@
   @media (max-width:900px){
     .hero-inner{grid-template-columns:1fr; padding:40px 20px 36px; gap:32px;}
   }
+  
   h1.hero-title{font-family:'IBM Plex Mono', monospace; font-weight:700; font-size:clamp(30px, 4.4vw, 50px); line-height:1.08; letter-spacing:-0.01em; margin:0 0 8px; color:var(--ink);}
   .hero-title .accent{color:var(--brass);}
   .hero-companyname{font-family:'IBM Plex Mono', monospace; font-size:13px; letter-spacing:0.14em; color:var(--muted); text-transform:uppercase; margin:0 0 22px;}
@@ -86,7 +97,7 @@
   @keyframes draw{to{stroke-dashoffset:0;}}
   @keyframes fadein{to{opacity:1;}}
   @media (prefers-reduced-motion: reduce){.callout-line{stroke-dashoffset:0; animation:none;} .callout-dot,.callout-label{opacity:1; animation:none;}}
-  .c1{top:6%; left:58%;} .c2{top:34%; left:4%;} .c3{top:78%; left:60%;}
+  .c1{top:6%; left:58%;} .c2{top:32%; left:5%;} .c3{top:78%; left:60%;}
 
   /* home strip: quick links to About / Catalogue */
   .home-links{padding:56px 0; border-bottom:1px solid var(--line-strong);}
@@ -135,6 +146,14 @@
   }
   .subtab-btn[aria-pressed="true"]{border-color:var(--ink); color:var(--ink); background:var(--bg);}
   .subtab-btn:hover{border-color:var(--brass); color:var(--brass);}
+  .subtab-panel{
+    transition:opacity .28s ease, transform .28s ease;
+    opacity:1; transform:translateY(0);
+  }
+  .subtab-panel.fading{opacity:0; transform:translateY(6px);}
+  @media (prefers-reduced-motion: reduce){
+    .subtab-panel{transition:none;}
+  }
 
   .materials{border-bottom:1px solid var(--line-strong); background:var(--bg-panel); padding:22px 0;}
   .materials-inner{display:flex; align-items:center; gap:40px; flex-wrap:wrap;}
@@ -295,7 +314,7 @@
             <circle class="callout-dot" cx="55" cy="82" r="1.1" style="animation-delay:1.5s"/>
           </svg>
           <div class="callout-label c1" style="animation-delay:1s">Alternating pole rings — like poles face down</div>
-          <div class="callout-label c2" style="left:4%; top:34%; transform:translateX(-100%); text-align:right; animation-delay:1.3s">Frictionless levitation gap</div>
+          <div class="callout-label c2" style="animation-delay:1.3s">Frictionless levitation gap</div>
           <div class="callout-label c3" style="animation-delay:1.6s">Clear acrylic base plate</div>
         </div>
       </div>
@@ -1980,6 +1999,14 @@
     document.querySelectorAll('.card:not(.in-view)').forEach(c => io.observe(c));
   }
 
+  // ---- locked-nav scroll shadow (smooth transition via CSS, toggled here) ----
+  const siteHeader = document.querySelector('header');
+  function updateHeaderLock(){
+    siteHeader.classList.toggle('is-locked', window.scrollY > 6);
+  }
+  window.addEventListener('scroll', updateHeaderLock, {passive:true});
+  updateHeaderLock();
+
   // ---- page routing (animated crossfade) ----
   const VALID_PAGES = ['home','about','catalogue','enquire'];
   const pages = document.querySelectorAll('.page');
@@ -2005,7 +2032,12 @@
     const next = document.getElementById('page-' + name);
     if(!next) return;
     if(current === next){
-      if(scrollTarget){ const el = document.getElementById(scrollTarget); if(el) el.scrollIntoView({behavior:'smooth'}); }
+      if(scrollTarget){
+        const el = document.getElementById(scrollTarget);
+        if(el) el.scrollIntoView({behavior:'smooth'});
+      } else {
+        window.scrollTo({top:0, behavior:'smooth'});
+      }
       return;
     }
 
@@ -2074,14 +2106,34 @@
     });
   }
 
-  // ---- catalogue subtabs ----
+  // ---- catalogue subtabs (smooth crossfade) ----
+  const reduceMotionSubtabs = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   document.querySelectorAll('.subtab-btn').forEach(btn => {
     btn.addEventListener('click', () => {
+      const target = btn.dataset.subtab;
+      if (btn.getAttribute('aria-pressed') === 'true') return;
+
       document.querySelectorAll('.subtab-btn').forEach(b => b.setAttribute('aria-pressed', 'false'));
       btn.setAttribute('aria-pressed', 'true');
-      document.getElementById('subtab-science').style.display = btn.dataset.subtab === 'science' ? '' : 'none';
-      document.getElementById('subtab-maths').style.display = btn.dataset.subtab === 'maths' ? '' : 'none';
-      revealCards();
+
+      const sciencePanel = document.getElementById('subtab-science');
+      const mathsPanel = document.getElementById('subtab-maths');
+      const showing = target === 'science' ? sciencePanel : mathsPanel;
+      const hiding = target === 'science' ? mathsPanel : sciencePanel;
+
+      function swap(){
+        hiding.style.display = 'none';
+        showing.style.display = '';
+        void showing.offsetWidth; // force reflow so the fade-in actually animates
+        showing.classList.remove('fading');
+        revealCards();
+      }
+
+      if (reduceMotionSubtabs) { swap(); return; }
+
+      hiding.classList.add('fading');
+      showing.classList.add('fading');
+      setTimeout(swap, 180);
     });
   });
 
