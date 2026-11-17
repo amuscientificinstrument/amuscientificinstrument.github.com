@@ -50,10 +50,12 @@
   .brand{display:flex; align-items:baseline; gap:10px; text-decoration:none; cursor:pointer; background:none; border:none; padding:0;}
   .brand-mark{font-family:'IBM Plex Mono', monospace; font-weight:700; font-size:22px; letter-spacing:0.02em; border:1.5px solid var(--ink); padding:2px 8px; color:var(--ink);}
   .brand-name{font-family:'IBM Plex Mono', monospace; font-size:12px; letter-spacing:0.16em; text-transform:uppercase; color:var(--ink-soft);}
+  .brand-logo{display:block; height:46px; width:auto;}
   nav{display:flex; gap:28px; font-size:13.5px;}
   @media (max-width:640px){
     .header-inner{padding:14px 16px;}
     .brand-name{display:none;}
+    .brand-logo{height:36px;}
     nav{gap:16px; font-size:12px;}
   }
   @media (max-width:380px){
@@ -296,9 +298,8 @@
 
 <header>
   <div class="header-inner">
-    <button class="brand" data-nav="home" aria-label="AMU Scientific Instruments — Home">
-      <span class="brand-mark">AMU</span>
-      <span class="brand-name">Scientific Instruments</span>
+    <button class="brand" data-nav="home" aria-label="AMU Scientific Instruments — Advanced Measurement Units — Home">
+      <img class="brand-logo" src="images/AMU_logo.png" alt="AMU Scientific Instruments — Advanced Measurement Units" width="168" height="47">
     </button>
     <nav>
       <button class="navlink" data-nav="home">Home</button>
@@ -318,7 +319,8 @@
         <span class="eyebrow">Apparatus for Science &amp; Maths, Grades 6–10</span>
         <h1 class="hero-title">Demonstration<br>instruments, built<br>to be <span class="accent">handled.</span></h1>
         <p class="hero-companyname">AMU Scientific Instruments — Belagavi, Karnataka</p>
-        <p class="hero-sub">AMU designs and manufactures laser-cut laboratory apparatus mapped to the CBSE syllabus — from magnetism to trigonometry. Every instrument ships in a choice of clear acrylic or MDF construction.</p>
+        <p class="hero-companyname" style="margin-top:-6px;"><b>AMU</b> = Advanced Measurement Units</p>
+        <p class="hero-sub">AMU (Advanced Measurement Units) designs and manufactures laser-cut laboratory apparatus mapped to the CBSE syllabus — from magnetism to trigonometry. Every instrument ships in a choice of clear acrylic or MDF construction.</p>
         <div class="hero-cta">
           <a href="#" class="btn btn-primary" data-nav="catalogue">View catalogue</a>
           <a href="#" class="btn btn-ghost" data-nav="enquire">Request a quote</a>
@@ -461,7 +463,7 @@
   <section class="about-body">
     <div class="wrap about-grid">
       <div>
-        <p>AMU Scientific Instruments was founded in 2026 by Karan N. Londe with a simple idea: science education becomes more meaningful when students can see it, touch it, experiment with it, and understand how it works.</p>
+        <p>AMU Scientific Instruments — where AMU stands for <strong>Advanced Measurement Units</strong> — was founded in 2026 by Karan N. Londe with a simple idea: science education becomes more meaningful when students can see it, touch it, experiment with it, and understand how it works.</p>
         <p>The company began with the development of compact, practical science demonstrators designed to make classroom concepts more engaging and easier to understand. From magnetism and electromagnetism to geometry, mathematics, and other foundational concepts, AMU Scientific Instruments focuses on creating educational apparatus that connects textbook theory with hands-on learning.</p>
         <p>Today, AMU develops science and mathematics instruments aligned with the CBSE curriculum, covering concepts from Grade 6 through Grade 10. Each instrument is designed with a specific concept or textbook chapter in mind, rather than being created as a generic laboratory product — designed, fabricated, assembled, and tested in-house before it's added to the catalogue.</p>
 
@@ -485,6 +487,7 @@
       <div>
         <div class="about-specs">
           <div class="t">At a glance</div>
+          <div><b>AMU stands for —</b> Advanced Measurement Units</div>
           <div><b>Founded —</b> 2026, by Karan N. Londe</div>
           <div><b>Base materials —</b> clear acrylic / MDF</div>
           <div><b>Subjects —</b> Science &amp; Mathematics</div>
@@ -2582,7 +2585,7 @@
 <footer>
   <div class="wrap footer-inner">
     <div class="brand" style="cursor:default;">
-      <span class="brand-mark">AMU</span>
+      <span class="brand-mark" title="AMU — Advanced Measurement Units">AMU</span>
       <span class="brand-name">Scientific Instruments</span>
     </div>
     <div class="footer-meta">
